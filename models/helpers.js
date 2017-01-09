@@ -31,7 +31,7 @@ e.isValidEnvVarType = function(callBack,i) {
 
 e.isValidProvider = function(callBack,i) {
   if(typeof i === 'string') {
-    callBack(( i === 'ec2' || i === '56m'));
+    callBack(( i === 'ec2' || i === '56m' || i === 'us-east-1'));
     return;
   } callBack(false);
 }
