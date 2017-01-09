@@ -83,8 +83,8 @@ schema.provider = {
     update: false,
     required: true,
     test: helpers.isValidProvider,
-    description: "Which provider (ec2, 56m, etc)",
-    requirement: "Must be a valid provider (ec2 or 56m today)"
+    description: "Which provider (ec2, 56m, us-east-1, etc)",
+    requirement: "Must be a valid provider (ec2, 56m, us-east-1 today)"
   },
   replicas: {
     type: Number,

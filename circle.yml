@@ -22,15 +22,15 @@ dependencies:
       -n "${CIRCLE_BUILD_NUM}" > props;
     - source props; docker build -t "${IMAGE}" .
     - source props; docker push "${IMAGE}"
-    - source props; docker run -it --env-file props quay.io/turner/harbor-deploy catalog
-      
+    - docker run -it --env-file props quay.io/turner/harbor-deploy catalog
+
 deployment:
   staging:
-    branch: [develop]
-    commands:
-      - source props; docker run -it --env-file props quay.io/turner/harbor-deploy deploy
     branch: [master]
     commands:
-      - source props; docker run -it --env-file props quay.io/turner/harbor-deploy deploy
+      - source props; docker build -t "${IMAGE}" .
+      - source props; docker push "${IMAGE}"
+      - docker run -it --env-file props quay.io/turner/harbor-deploy catalog
+      - docker run -it --env-file props quay.io/turner/harbor-deploy deploy
       - source props; docker tag "${IMAGE}" "${LATEST}"
       - source props; docker push "${LATEST}"
