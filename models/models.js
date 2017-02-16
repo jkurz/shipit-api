@@ -212,6 +212,17 @@ schema.port = {
       description: 'Boolean, if ELB should forward client IP information via Proxy Protocol scheme (only applies to TCP ELBs), defaults false',
       requirement: 'must be a valid boolean'
   },
+  enable_session_affinity: {
+      type: Boolean,
+      unique: false,
+      create: true,
+      update: true,
+      required: false,
+      default: false,
+      test: helpers.isBoolean,
+      description: 'Boolean, whether we should set up session affinity, needed for websockets (ALB or TCP ELBs), defaults false',
+      requirement: 'must be a valid boolean'
+  },
   private_key: {
     type: String,
     unique: false,

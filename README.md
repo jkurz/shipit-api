@@ -329,6 +329,13 @@ enable_proxy_protocol
                scheme (only applies to TCP ELBs), defaults false
 - requirement: must be a valid boolean
 
+enable_session_affinity
+- type:        Boolean
+- required:    false
+- description: Boolean, whether we should set up session affinity, needed for websockets
+               (ALB or TCP ELBs), defaults false
+- requirement: must be a valid boolean
+
 private_key
 - type:        String
 - required:    false
@@ -832,6 +839,13 @@ enable_proxy_protocol
 - required:    false
 - description: Boolean, if ELB should forward client IP information via Proxy Protocol
                scheme (only applies to TCP ELBs), defaults false
+- requirement: must be a valid boolean
+
+enable_session_affinity
+- type:        Boolean
+- required:    false
+- description: Boolean, whether we should set up session affinity, needed for websockets
+               (ALB or TCP ELBs), defaults false
 - requirement: must be a valid boolean
 
 private_key
